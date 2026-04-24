@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pharmaport — Market entry partner for Croatia</title>
+<meta name="description" content="Pharmaport d.o.o. — Zagreb-based distribution partner for cosmetics, pharmacy products and food supplements entering the Croatian market." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink:        #0E1A14;
+    --ink-soft:   #2A3A32;
+    --cream:      #F5F1E8;
+    --cream-deep: #ECE6D6;
+    --bottle:     #1E3A2E;
+    --bottle-2:   #2D5A46;
+    --moss:       #6B8A7A;
+    --gold:       #B8965A;
+    --rule:       rgba(14,26,20,0.12);
+    --rule-strong:rgba(14,26,20,0.28);
+
+    --sans: "Inter", -apple-system, system-ui, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 16px;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+  }
+  @media (max-width: 720px) {
+    .container { padding: 0 22px; }
+  }
+
+  /* ─────── NAV ─────── */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245, 241, 232, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 0;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .logo-svg {
+    width: 28px; height: 28px;
+    color: var(--bottle);
+  }
+  .logo-text {
+    font-weight: 600;
+    font-size: 19px;
+    letter-spacing: -0.015em;
+  }
+  .logo-text em {
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--moss);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-left: 4px;
+  }
+  .nav-links {
+    display: flex; gap: 32px; align-items: center;
+  }
+  .nav-links a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--bottle); }
+  .nav-cta {
+    background: var(--bottle);
+    color: var(--cream) !important;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 13px !important;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--bottle-2); }
+  @media (max-width: 720px) {
+    .nav-links a:not(.nav-cta) { display: none; }
+  }
+
+  /* ─────── HERO ─────── */
+  .hero {
+    position: relative;
+    padding: 120px 0 100px;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    right: -140px; top: 60px;
+    width: 480px; height: 480px;
+    border: 1px solid var(--bottle);
+    border-radius: 50%;
+    opacity: 0.08;
+    pointer-events: none;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    right: -60px; top: 140px;
+    width: 340px; height: 340px;
+    border: 1px solid var(--bottle);
+    border-radius: 50%;
+    opacity: 0.06;
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bottle);
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 32px;
+  }
+  .eyebrow::before {
+    content: ""; display: inline-block;
+    width: 28px; height: 1px; background: var(--bottle);
+  }
+
+  h1 {
+    font-weight: 500;
+    font-size: clamp(40px, 5.8vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    max-width: 16ch;
+    margin-bottom: 32px;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--bottle);
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin-bottom: 40px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn-primary {
+    background: var(--bottle);
+    color: var(--cream);
+    padding: 15px 30px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px;
+    transition: background .2s, transform .2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--bottle-2); transform: translateY(-1px); }
+  .btn-primary .arrow { transition: transform .25s; }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+
+  .btn-ghost {
+    color: var(--ink);
+    padding: 15px 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    transition: color .2s, border-color .2s;
+  }
+  .btn-ghost:hover { color: var(--bottle); border-color: var(--bottle); }
+
+  /* ─────── BRANDS ─────── */
+  .brands {
+    padding: 72px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--cream-deep);
+  }
+  .brands-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+  }
+  .brands-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--moss);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .brands-label .num { color: var(--gold); font-weight: 500; }
+  .brands-tagline {
+    font-size: 15px;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    line-height: 1.55;
+  }
+  .brands-list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+    border-left: 1px solid var(--rule-strong);
+  }
+  @media (max-width: 1100px) {
+    .brands-list { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .brands-list { grid-template-columns: repeat(2, 1fr); }
+  }
+  .brand-cell {
+    padding: 32px 20px;
+    border-right: 1px solid var(--rule-strong);
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90px;
+    transition: background .25s;
+  }
+  .brand-cell:hover { background: rgba(30, 58, 46, 0.05); }
+  .brand-name {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  /* ─────── SECTION BASE ─────── */
+  section { position: relative; z-index: 2; scroll-margin-top: 80px; }
+  .section-pad { padding: 100px 0; }
+  @media (max-width: 720px) { .section-pad { padding: 70px 0; } }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--moss);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-label .num { color: var(--gold); font-weight: 500; }
+
+  h2 {
+    font-weight: 500;
+    font-size: clamp(30px, 3.8vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.028em;
+    max-width: 22ch;
+    margin-bottom: 24px;
+  }
+  h2 em { font-style: normal; color: var(--bottle); }
+
+  .section-intro {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    max-width: 58ch;
+  }
+
+  /* ─────── SERVICES ─────── */
+  .services {
+    background: var(--ink);
+    color: var(--cream);
+  }
+  .services .section-label { color: rgba(245,241,232,0.6); }
+  .services h2 { color: var(--cream); }
+  .services h2 em { color: var(--gold); }
+  .services .section-intro { color: rgba(245,241,232,0.7); }
+
+  .services-grid {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(245,241,232,0.15);
+  }
+  @media (max-width: 780px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+  .service {
+    padding: 40px 36px;
+    border-bottom: 1px solid rgba(245,241,232,0.15);
+    border-right: 1px solid rgba(245,241,232,0.15);
+    transition: background .3s;
+  }
+  .service:last-child { border-right: none; }
+  @media (max-width: 780px) {
+    .service { border-right: none; padding: 32px 0; }
+  }
+  .service:hover { background: rgba(245,241,232,0.03); }
+  .service-num {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+  .service h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.25;
+    margin-bottom: 12px;
+    letter-spacing: -0.015em;
+  }
+  .service p {
+    color: rgba(245,241,232,0.65);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ─────── CHANNELS ─────── */
+  .channels-grid {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 860px) {
+    .channels-grid { grid-template-columns: 1fr; }
+  }
+  .channel-card {
+    background: var(--cream-deep);
+    padding: 36px 32px;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .channel-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 50px -20px rgba(14, 26, 20, 0.15);
+  }
+  .channel-icon {
+    width: 44px; height: 44px;
+    border: 1px solid var(--bottle);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    color: var(--bottle);
+  }
+  .channel-card h4 {
+    font-size: 19px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+  }
+  .channel-card p {
+    color: var(--ink-soft);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ─────── CONTACT ─────── */
+  .contact {
+    background: var(--bottle);
+    color: var(--cream);
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  .contact h2 { color: var(--cream); }
+  .contact h2 em { color: var(--gold); }
+  .contact-intro {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(245,241,232,0.8);
+    max-width: 48ch;
+    margin-bottom: 40px;
+  }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--cream);
+    color: var(--ink);
+    padding: 15px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background .2s, transform .2s;
+  }
+  .contact-btn:hover { background: #fff; transform: translateY(-1px); }
+
+  .contact-details {
+    border-top: 1px solid rgba(245,241,232,0.2);
+    padding-top: 24px;
+  }
+  .detail-row {
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(245,241,232,0.12);
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 20px;
+    align-items: baseline;
+  }
+  .detail-row:last-child { border-bottom: none; }
+  .detail-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,241,232,0.55);
+  }
+  .detail-val {
+    font-size: 15px;
+    color: var(--cream);
+    line-height: 1.5;
+  }
+  .detail-val a {
+    color: var(--cream);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(245,241,232,0.3);
+    transition: border-color .2s;
+  }
+  .detail-val a:hover { border-color: var(--gold); }
+
+  /* ─────── FOOTER ─────── */
+  footer {
+    background: var(--ink);
+    color: rgba(245,241,232,0.55);
+    padding: 36px 0;
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-size: 12px;
+    font-family: var(--mono);
+    letter-spacing: 0.04em;
+  }
+
+  /* ─────── REVEAL ─────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform .8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  .hero .eyebrow, .hero h1, .hero-sub, .hero-actions {
+    animation: fadeUp .8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .hero .eyebrow { animation-delay: .05s; }
+  .hero h1       { animation-delay: .15s; }
+  .hero-sub      { animation-delay: .30s; }
+  .hero-actions  { animation-delay: .45s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#top" class="logo">
+      <!-- Äskulap-inspired mark -->
+      <svg class="logo-svg" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 3 V29" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M16 7 C 10 8, 10 12, 16 13 C 22 14, 22 18, 16 19 C 10 20, 10 24, 16 25"
+              stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <circle cx="16" cy="4.5" r="1.6" fill="currentColor"/>
+      </svg>
+      <span class="logo-text">Pharmaport <em>d.o.o.</em></span>
+    </a>
+    <div class="nav-links">
+      <a href="#brands">Brands</a>
+      <a href="#services">Services</a>
+      <a href="#channels">Channels</a>
+      <a href="#contact" class="nav-cta">Get in touch</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="top">
+  <div class="container">
+    <span class="eyebrow">Zagreb · Croatia</span>
+    <h1>Your market entry partner in <em>Croatia</em>.</h1>
+    <p class="hero-sub">
+      Pharmaport d.o.o. distributes cosmetics, pharmacy products and food supplements
+      across the Croatian market — with the marketing, POS and training support to
+      make your brand succeed on the shelf.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">
+        Bring your brand to Croatia
+        <span class="arrow">→</span>
+      </a>
+      <a href="#services" class="btn-ghost">What we do</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ BRANDS ══════════ -->
+<section class="brands" id="brands">
+  <div class="container">
+    <div class="brands-header reveal">
+      <div class="brands-label"><span class="num">—</span> Brands we represent</div>
+      <p class="brands-tagline">
+        We distribute some of Europe's most respected names in dermocosmetics, pharmacy and supplements — and we'd like to add yours.
+      </p>
+    </div>
+    <div class="brands-list reveal">
+      <div class="brand-cell"><span class="brand-name">Cantabria<br>Labs</span></div>
+      <div class="brand-cell"><span class="brand-name">OMNi-BiOTiC<sup style="font-size:10px;">®</sup></span></div>
+      <div class="brand-cell"><span class="brand-name">Uriage</span></div>
+      <div class="brand-cell"><span class="brand-name">Filorga</span></div>
+      <div class="brand-cell"><span class="brand-name">SVR</span></div>
+      <div class="brand-cell"><span class="brand-name">Lazartigue</span></div>
+      <div class="brand-cell"><span class="brand-name">Fragonard</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section class="services section-pad" id="services">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label"><span class="num">01</span> What we do</div>
+      <h2>A single partner for <em>distribution and growth</em> in Croatia.</h2>
+      <p class="section-intro">
+        We cover the commercial chain end-to-end, so your team doesn't have to
+        coordinate multiple local vendors to build presence in a new market.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service reveal">
+        <div class="service-num">— 01</div>
+        <h3>Distribution</h3>
+        <p>Nationwide distribution to pharmacies, retail chains and specialty health stores across Croatia.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-num">— 02</div>
+        <h3>Marketing</h3>
+        <p>Localized brand and trade marketing, tuned to how Croatian consumers discover and buy.</p>
+      </div>
+      <div class="service reveal">
+        <div class="service-num">— 03</div>
+        <h3>POS optimization</h3>
+        <p>Shelf placement, merchandising and visibility work that turns listings into actual sell-out.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CHANNELS ══════════ -->
+<section class="section-pad" id="channels">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-label"><span class="num">02</span> Where we sell</div>
+      <h2>Three channels. <em>One coordinated presence.</em></h2>
+    </div>
+
+    <div class="channels-grid">
+      <article class="channel-card reveal">
+        <div class="channel-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="4" y="3" width="16" height="18" rx="1"/>
+            <path d="M12 8v8M8 12h8"/>
+          </svg>
+        </div>
+        <h4>Pharmacies</h4>
+        <p>Independent pharmacies and pharmacy chains — the right home for dermocosmetics, OTC and supplements.</p>
+      </article>
+
+      <article class="channel-card reveal">
+        <div class="channel-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M3 8h18l-2 11H5L3 8z"/>
+            <path d="M8 8V5a4 4 0 1 1 8 0v3"/>
+          </svg>
+        </div>
+        <h4>Supermarkets &amp; retail</h4>
+        <p>Modern trade and drugstore chains — where visibility and merchandising decide whether a brand wins.</p>
+      </article>
+
+      <article class="channel-card reveal">
+        <div class="channel-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2l2.4 5 5.6.8-4 4 1 5.6L12 15l-5 2.4 1-5.6-4-4L9.6 7z"/>
+          </svg>
+        </div>
+        <h4>Specialty health stores</h4>
+        <p>Natural, organic and specialist retailers — ideal for premium supplements and clean beauty brands.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section class="contact section-pad" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-label" style="color: rgba(245,241,232,0.55);">
+          <span class="num" style="color: var(--gold);">03</span> Contact
+        </div>
+        <h2>Let's talk about bringing your brand to <em>Croatia</em>.</h2>
+        <p class="contact-intro">
+          Tell us about your brand and your ambitions in the region. We'll come back with an honest read on market fit.
+        </p>
+        <a href="mailto:info@pharmaport.hr" class="contact-btn">
+          info@pharmaport.hr
+          <span>→</span>
+        </a>
+      </div>
+
+      <div class="contact-details reveal">
+        <div class="detail-row">
+          <div class="detail-label">Company</div>
+          <div class="detail-val">Pharmaport d.o.o.</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Address</div>
+          <div class="detail-val">Lavoslava Ružičke 12<br>10000 Zagreb, Croatia</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Contact</div>
+          <div class="detail-val">Ammar Nuhbegović</div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">Email</div>
+          <div class="detail-val"><a href="mailto:info@pharmaport.hr">info@pharmaport.hr</a></div>
+        </div>
+        <div class="detail-row">
+          <div class="detail-label">OIB</div>
+          <div class="detail-val">04275438192</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="container footer-inner">
+    <div>© 2026 PHARMAPORT D.O.O.</div>
+    <div>ZAGREB · CROATIA · EU</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
