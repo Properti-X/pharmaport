@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/intranet", "destination": "https://brand-portal-bice.vercel.app/intranet" },
+    { "source": "/intranet/:path*", "destination": "https://brand-portal-bice.vercel.app/intranet/:path*" }
+  ]
+}
